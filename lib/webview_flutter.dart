@@ -89,7 +89,7 @@ class SurfaceAndroidWebView extends AndroidWebView {
     assert(Platform.isAndroid);
     assert(webViewPlatformCallbacksHandler != null);
     return PlatformViewLink(
-      viewType: 'plugins.flutter.io/webview',
+      viewType: 'plugins.flutter.io/webviewpro',
       surfaceFactory: (
         BuildContext context,
         PlatformViewController controller,
@@ -104,7 +104,7 @@ class SurfaceAndroidWebView extends AndroidWebView {
       onCreatePlatformView: (PlatformViewCreationParams params) {
         return PlatformViewsService.initSurfaceAndroidView(
           id: params.id,
-          viewType: 'plugins.flutter.io/webview',
+          viewType: 'plugins.flutter.io/webviewpro',
           // WebView content is not affected by the Android view's layout direction,
           // we explicitly set it here so that the widget doesn't require an ambient
           // directionality.
@@ -180,7 +180,7 @@ class JavascriptChannel {
   JavascriptChannel({
     required this.name,
     required this.onMessageReceived,
-  })   : assert(name != null),
+  })  : assert(name != null),
         assert(onMessageReceived != null),
         assert(_validChannelNames.hasMatch(name));
 
@@ -491,15 +491,14 @@ CreationParams _creationParamsfromWidget(WebView widget) {
 
 WebSettings _webSettingsFromWidget(WebView widget) {
   return WebSettings(
-    javascriptMode: widget.javascriptMode,
-    hasNavigationDelegate: widget.navigationDelegate != null,
-    hasProgressTracking: widget.onProgress != null,
-    debuggingEnabled: widget.debuggingEnabled,
-    gestureNavigationEnabled: widget.gestureNavigationEnabled,
-    allowsInlineMediaPlayback: widget.allowsInlineMediaPlayback,
-    geolocationEnabled: widget.geolocationEnabled,
-    userAgent: WebSetting<String?>.of(widget.userAgent)
-  );
+      javascriptMode: widget.javascriptMode,
+      hasNavigationDelegate: widget.navigationDelegate != null,
+      hasProgressTracking: widget.onProgress != null,
+      debuggingEnabled: widget.debuggingEnabled,
+      gestureNavigationEnabled: widget.gestureNavigationEnabled,
+      allowsInlineMediaPlayback: widget.allowsInlineMediaPlayback,
+      geolocationEnabled: widget.geolocationEnabled,
+      userAgent: WebSetting<String?>.of(widget.userAgent));
 }
 
 // This method assumes that no fields in `currentValue` are null.

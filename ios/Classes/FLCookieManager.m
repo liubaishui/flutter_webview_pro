@@ -11,7 +11,7 @@
   FLCookieManager *instance = [[FLCookieManager alloc] init];
 
   FlutterMethodChannel *channel =
-      [FlutterMethodChannel methodChannelWithName:@"plugins.flutter.io/cookie_manager"
+      [FlutterMethodChannel methodChannelWithName:@"plugins.flutter.io/cookie_manager_pro"
                                   binaryMessenger:[registrar messenger]];
   [registrar addMethodCallDelegate:instance channel:channel];
 }
